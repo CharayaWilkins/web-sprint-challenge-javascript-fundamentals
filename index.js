@@ -28,10 +28,8 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
-  }
+function summation() {}
+ 
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -56,21 +54,42 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  // function animalNames(array){
+  //   const displayNames = [];
+  //     array.forEach(function(item){
+  //         displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
+  //       });
+  //     return displayNames;
+  //   }
+  function animalNames(array){
+    const displayNames = [];
+    array.forEach(item => displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`));{
+      return displayNames;
+    }
   }
-  
 
-  /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
+    
+console.log('Request 1', animalNames(zooAnimals)); 
+
+/* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
   Using lowerCaseNames use .map() to create a new array of strings with the animal's names in lowercase and return the new array. 
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
-  
+  function lowerCaseNames(array){
+     const lowerCase = array.map(function(item){
+       return item.animal_name.toLowerCase();
+     });
+     return lowerCase
+    }
+    console.log('Request 2', lowerCaseNames(zooAnimals));
+    // function lowerCaseNames(array){
+    //   const lowerCase = array.map(item =>
+    //     item.animal_name.toLowerCase());{
+    //     return lowerCase;
+    //   }
+    //  }
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
