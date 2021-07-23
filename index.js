@@ -170,8 +170,8 @@ function multiply(b, c){
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-function greeting(first, last){
-   return `Hello ${first} ${last} nice to meet you!`;
+function greeting(b, c){
+   return `Hello ${b} ${c}, nice to meet you!`;
   }
   // console.log(greeting('Raya', 'Wilkins'));
   
