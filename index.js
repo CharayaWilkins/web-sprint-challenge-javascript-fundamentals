@@ -28,9 +28,11 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation() {}
+function summation(number) {
+  return (number * (number + 1)) /2; 
+}
  
- 
+ console.log('Task 2', summation(4));
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -53,7 +55,7 @@ const zooAnimals = [
   Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
-
+// - FUNCTION EXPRESSION -
   // function animalNames(array){
   //   const displayNames = [];
   //     array.forEach(function(item){
@@ -61,6 +63,7 @@ const zooAnimals = [
   //       });
   //     return displayNames;
   //   }
+// - ARROW FUNCTION -
   function animalNames(array){
     const displayNames = [];
     array.forEach(item => displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`));{
@@ -76,7 +79,7 @@ console.log('Request 1', animalNames(zooAnimals));
   Using lowerCaseNames use .map() to create a new array of strings with the animal's names in lowercase and return the new array. 
   For example: ['jackal, asiatic', .....]
   */
-
+// - FUNCTION EXPRESSION -
   function lowerCaseNames(array){
      const lowerCase = array.map(function(item){
        return item.animal_name.toLowerCase();
@@ -84,6 +87,8 @@ console.log('Request 1', animalNames(zooAnimals));
      return lowerCase
     }
     console.log('Request 2', lowerCaseNames(zooAnimals));
+  
+  // - ARROW FUNCTION -
     // function lowerCaseNames(array){
     //   const lowerCase = array.map(item =>
     //     item.animal_name.toLowerCase());{
@@ -95,21 +100,43 @@ console.log('Request 1', animalNames(zooAnimals));
   The zoo is concerned about animals with a lower population count. 
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
-
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+// - FUNCTION EXPRESSION -
+  function lowPopulationAnimals(array){
+    const endangered = array.filter(function(item){
+      return item.population < 5;
+    });
+    return endangered;
   }
+// - ARROW FUNCTION - 
+  // function lowPopulationAnimals(array){
+  //   const endangered = array.filter(item => item.population < 5);{
+  //     return endangered;
+  //   }
+  // }
   
+    console.log ('Request 3', lowPopulationAnimals(zooAnimals));
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
   Using USApop find the total population from the zoos array using the .reduce() method. 
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
-
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+// - FUNCTION EXPRESSION -
+  function USApop(array){
+    const totalPop = array.reduce(function(accumulator, item){
+     return accumulator + item.population;
+    },0);
+    return totalPop;
   }
+// - ARROW FUNCTION -
+  // function USApop(array){
+  //   const totalPop = array.reduce((accumulator, item) => {return accumulator + item.population},0);
+  //  return totalPop;
+  // }
+  
+  console.log('Request 4', USApop(zooAnimals));
+
+  
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -120,16 +147,16 @@ console.log('Request 1', animalNames(zooAnimals));
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
+  function consume(a, b, cb){
+    return cb(a, b);
   }
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(/*Your Code Here */){
-    /*Your Code Here*/
+function add(b, c){
+    return b + c;
   }
 
 
